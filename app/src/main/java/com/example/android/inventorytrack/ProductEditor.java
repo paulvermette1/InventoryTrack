@@ -54,6 +54,7 @@ import java.util.List;
 
 /**
  * Created by paulvermette on 2016-12-20.
+ * Adding butter knife 2017-01-22.
  */
 
 public class ProductEditor extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>, ProductQuantityDialog.OrderProductDialogListener {
