@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Inventory Tracker</string>
+
+    <!-- Title text for the empty view, which describes the empty dog house image [CHAR LIMIT=50] -->
+    <string name="empty_view_title_text">Your Database is Empty.</string>
+    <string name="empty_view_subtitle_text">Get started with sample data by clicking Seed Database</string>
+    <string name="seed_button_text">Seed Database</string>
+    <string name="warning_empty_database">You may not add new products until the database is seeded.</string>
+
+    <!-- Used for Toasts after DB commit  -->
+    <string name="save_operation_failed">Save Failed</string>
+    <string name="save_operation_succeeded">Record Saved</string>
+    <string name="multi_save_operation_succeeded">Records Saved</string>
+
+    <!-- Prompts and Hints for Product Editor Activity -->
+    <string name="product_name">Product Name</string>
+    <string name="hint_product_name">Product Name</string>
+    <string name="category_supplier">Supplier</string>
+    <string name="price">Price</string>
+    <string name="hint_price">Price</string>
+    <string name="qty_on_hand">On Hand</string>
+    <string name="photo_label">"Photo</string>
+    <string name="photo_button">"Change Photo</string>
+
+    <!-- List view prompts -->
+    <string name="summary_part1_prefix">Qty on Hand :</string>
+    <string name="summary_part2_prefix">    Price : $</string>
+
+    <!-- Variable Product Editor Activity Titles -->
+    <string name="editor_activity_title_new_product">New Product</string>
+    <string name="editor_activity_title_edit_product">Edit Product</string>
+
+    <string name="delete_operation_failed">Delete Failed</string>
+    <string name="delete_operation_succeeded">Record Deleted</string>
+
+    <!-- Dialog message to ask the user to confirm deleting the current pet [CHAR LIMIT=NONE] -->
+    <string name="delete_dialog_msg">Delete this product?</string>
+
+    <!-- Dialog button text for the option to confirm deleting the current pet [CHAR LIMIT=20] -->
+    <string name="delete">Delete</string>
+
+    <!-- Dialog button text for the option to cancel deletion of the current pet [CHAR LIMIT=20] -->
+    <string name="cancel">Cancel</string>
+
+    <!-- Menu options -->
+    <string name="save">Save</string>
+    <string name="add_new_item">"Add Item</string>
+
+    <!-- unsaved changes dialog strings -->
+    <string name="unsaved_changes_dialog_msg">Discard your changes and quit editing?</string>
+    <string name="discard_changes">Discard</string>
+    <string name="keep_editing">Keep Editing</string>
+
+    <!-- product editor & product dialog button and label strings -->
+    <string name="order_button">Order</string>
+    <string name="receive">Receive</string>
+    <string name="sale">Sale</string>
+    <string name="sale_dialog_prompt">Quantity Sold : </string>
+    <string name="order_dialog_prompt">Quantity to Order : </string>
+    <string name="receive_dialog_prompt">Receiving Quantity : </string>
+
+    <!-- Dialog Prompts -->
+    <string name="order_qty">Order Quantity : </string>
+
+    <!-- Order Email Text -->
+    <string name="order_email_header">Order Summary for Alter Ego Sports</string>
+    <string name="order_email_subject">Ski Order from Alter Ego Sports</string>
+    <string name="order_email_product_heading">Product : </string>
+    <string name="order_email_quantity_heading">Quantity Ordered : </string>
+
+    <!-- Order Receiving & Sale Warnings -->
+    <string name="receiving_warning_less_than_one">You cannot receive less than one.</string>
+    <string name="sale_warning_less_than_one">You cannot sell a quantity less than one.</string>
+    <string name="sale_warning_not_enough_stock">You do not have enough inventory on hand.</string>
+    <string name="sale_completed">Sale successful.</string>
+    <string name="receiving_completed">Receipt successful. Quantity on hand updated.</string>
+    <string name="order_less_than_one">You can not order less than one.</string>
+    <string name="please_save_changes">You can not order less than one.</string>
+    <string name="sale_general_failure">Sale operation failed.</string>
+
+    <!-- Other Error Conditions -->
+    <string name="photo_load_error">File not found exception, when attempting to load selected image.</string>
+    <string name="dialog_purpose_not_found">NO PURPOSE DETECTED</string>
+    <string name="no_product_name">Cannot have an empty product name.</string>
+    <string name="price_invalid">Price entered is invalid.</string>
+    <string name="invalid_loader_id">Invalid loader ID passed in to cursor loader.</string>
+    <string name="unknown_uri">Cannot query unknown URI</string>
+
+
+
+
+</resources>

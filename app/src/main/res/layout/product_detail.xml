@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context=".ProductEditor">
+
+            <!-- Name category -->
+            <LinearLayout
+                android:id="@+id/container_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <!-- Name Label -->
+                <TextView
+                    style="@style/CategoryStyle"
+                    android:text="@string/product_name"
+                    tools:text="Product Name" />
+
+                <!-- Name field -->
+                <EditText
+                    android:id="@+id/edit_product_name"
+                    style="@style/EditorFieldStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="@string/hint_product_name"
+                    android:inputType="textCapWords"
+                    tools:text="Name entry" />
+            </LinearLayout>
+
+
+            <!-- Price category -->
+            <LinearLayout
+                android:id="@+id/container_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_name"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <!-- Label -->
+                <TextView
+                    style="@style/CategoryStyle"
+                    android:text="@string/price" />
+
+                <!-- Price field -->
+                <EditText
+                    android:id="@+id/edit_price"
+                    style="@style/EditorFieldStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:hint="@string/hint_price"
+                    android:inputType="numberDecimal"
+                    tools:text="$899.00" />
+            </LinearLayout>
+
+            <!-- Supplier category -->
+            <LinearLayout
+                android:id="@+id/container_supplier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_price"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <!-- Label -->
+                <TextView
+                    style="@style/CategoryStyle"
+                    android:text="@string/category_supplier"
+                    tools:text="Supplier" />
+
+                <!-- supplier drop-down spinner -->
+                <Spinner
+                    android:id="@+id/spinner_supplier"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="2"
+                    android:paddingRight="16dp"
+                    android:spinnerMode="dropdown" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/photo_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_supplier"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    style="@style/CategoryStyle"
+                    android:layout_weight="1"
+                    android:text="@string/photo_label" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/photo_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/photo_button" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/photo"
+                android:layout_width="350dp"
+                android:layout_height="175dp"
+                android:layout_below="@+id/photo_container"
+                android:layout_centerInParent="true"
+                android:layout_margin="8dp" />
+
+            <!-- Qty On Hand category -->
+
+            <LinearLayout
+                android:id="@+id/container_qty_on_hand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/photo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <!-- Qty field -->
+                <TextView
+                    android:id="@+id/qty_on_hand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:textColor="#000000"
+                    android:textSize="48dp"
+                    tools:text="23" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingLeft="8dp"
+                    android:text="@string/qty_on_hand"
+                    android:textColor="#000000" />
+
+            </LinearLayout>
+
+            <!-- Qty Adjustment category -->
+            <LinearLayout
+                android:id="@+id/container_quantity_adjustment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/container_qty_on_hand"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/order_button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/order_button" />
+
+                <Button
+                    android:id="@+id/receive_button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/receive" />
+
+                <Button
+                    android:id="@+id/sale_button"
+                    android:layout_width="0dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+                    android:text="@string/sale" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#2D3640</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#0D47A1</color>
+
+    <!-- Primary color for the editor -->
+    <color name="editorColorPrimary">#2D3640</color>
+
+    <!-- Primary dark color for the editor -->
+    <color name="editorColorPrimaryDark">#000000</color>
+
+    <!-- Font Colors for List View -->
+    <color name="list_item">#2B3D4D</color>
+    <color name="list_item_subtitle">#A2AAB0</color>
+
+</resources>
