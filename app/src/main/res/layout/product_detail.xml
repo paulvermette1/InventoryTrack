@@ -70,7 +70,7 @@
                     android:layout_weight="2"
                     android:hint="@string/hint_price"
                     android:inputType="numberDecimal"
-                    tools:text="$899.00" />
+                    tools:text="$800.00" />
             </LinearLayout>
 
             <!-- Supplier category -->
