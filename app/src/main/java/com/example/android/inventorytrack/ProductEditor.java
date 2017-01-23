@@ -45,11 +45,19 @@ import com.example.android.inventorytrack.data.InventoryContract;
 import com.example.android.inventorytrack.data.InventoryContract.ProductEntry;
 import com.example.android.inventorytrack.data.InventoryContract.SupplierEntry;
 
+import org.w3c.dom.Text;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+
+import butterknife.ButterKnife;
+import butterknife.BindView;
+import butterknife.OnClick;
+
 
 
 /**
@@ -70,13 +78,67 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
     // Create a URI which represents the current product being edited
     private Uri mCurrentProductUri;
     private Uri mSupplierUri = SupplierEntry.CONTENT_URI;
-    private ImageView imageView;
     private Bitmap imageBitmap;
     // Create objects to handle the data fields on screen
-    private EditText mNameEditText;
-    private TextView mQtyText;
-    private EditText mPriceEditText;
-    private Spinner mSupplierSpinner;
+    @BindView(R.id.photo) ImageView imageView;
+    @BindView(R.id.edit_product_name) EditText mNameEditText;
+    @BindView(R.id.qty_on_hand) TextView mQtyText;
+    @BindView(R.id.edit_price) EditText mPriceEditText;
+    @BindView(R.id.spinner_supplier) Spinner mSupplierSpinner;
+
+    @OnClick(R.id.order_button)
+    public void order(View view)  {
+        ProductQuantityDialog productDialog = new ProductQuantityDialog();
+        // pass in arguments to indicate the purpose of the dialog
+        // which determines prompts and button labels that should be used
+        Bundle args = new Bundle();
+        args.putInt("dialogPurpose", ORDERING_DIALOG_FRAGMENT);
+        productDialog.setArguments(args);
+        productDialog.show(fragmentManager, "Order Dialog");
+    }
+    @OnClick(R.id.receive_button)
+    public void receive(View view) {
+        ProductQuantityDialog productDialog = new ProductQuantityDialog();
+
+        // pass in arguments to indicate the purpose of the dialog
+        // which determines prompts and button labels that should be used
+        Bundle args = new Bundle();
+        args.putInt("dialogPurpose", RECEIVING_DIALOG_FRAGMENT);
+        productDialog.setArguments(args);
+        productDialog.show(fragmentManager, "Receiving Dialog");
+    }
+
+    @OnClick(R.id.sale_button)
+    public void sale(View view) {
+        ProductQuantityDialog productDialog = new ProductQuantityDialog();
+        // pass in arguments to indicate the purpose of the dialog
+        // which determines prompts and button labels that should be used
+        Bundle args = new Bundle();
+        args.putInt("dialogPurpose", SELLING_DIALOG_FRAGMENT);
+        productDialog.setArguments(args);
+        productDialog.show(fragmentManager, "Sale Dialog");
+    }
+    @OnClick(R.id.photo_button)
+    public void onClick(View arg0) {
+
+        // Depending on the API suppoted by the device, deal with permissions to access
+        // EXTERNAL STORAGE
+        int currentapiVersion = android.os.Build.VERSION.SDK_INT;
+        if (currentapiVersion >= android.os.Build.VERSION_CODES.M) {
+            if (!ExternalStoragePermissionGranted(activity)) {
+                // No permission. Proceed without launching photo picker
+                return;
+            }
+        }
+        // Either permission was granted or API is less than M so proceed with file access
+        Intent intentGetPhoto = new Intent(
+                Intent.ACTION_PICK);
+        intentGetPhoto.setType("image/*");
+
+        startActivityForResult(intentGetPhoto, RESULT_LOAD_IMAGE);
+    }
+
+
     // Create a global supplier ID so the current product query can set the supplier ID
     // then once the list of suppliers is collected and the spinner is populated, the spinner
     // can be set to the proper value matching this ID.  Initialize to zero which will
@@ -164,7 +226,10 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.product_detail);
 
-        // Examine the intent that was used to launch this activity,
+        // Use butterknife
+        ButterKnife.bind(this);
+
+         // Examine the intent that was used to launch this activity,
         // in order to figure out if we're creating a new product or editing an existing one.
         Intent intent = getIntent();
         mCurrentProductUri = intent.getData();
@@ -193,13 +258,6 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
             getLoaderManager().initLoader(EXISTING_PRODUCT_LOADER, null, this);
         }
 
-        // Find all relevant views that we will need to read user input from
-        mNameEditText = (EditText) findViewById(R.id.edit_product_name);
-        mQtyText = (TextView) findViewById(R.id.qty_on_hand);
-        mPriceEditText = (EditText) findViewById(R.id.edit_price);
-        mSupplierSpinner = (Spinner) findViewById(R.id.spinner_supplier);
-        imageView = (ImageView) findViewById(R.id.photo);
-
         // Setup OnTouchListeners on all the input fields, so we can determine if the user
         // has touched or modified them. This will let us know if there are unsaved changes
         // or not, if the user tries to leave the editor without saving.
@@ -207,6 +265,7 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
         mPriceEditText.setOnTouchListener(mTouchListener);
         mSupplierSpinner.setOnTouchListener(mTouchListener);
 
+/*
         // Create Click Listener for image load button
         Button buttonLoadImage = (Button) findViewById(R.id.photo_button);
         buttonLoadImage.setOnClickListener(new View.OnClickListener() {
@@ -226,13 +285,16 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
                 // Either permission was granted or API is less than M so proceed with file access
                 Intent intentGetPhoto = new Intent(
                         Intent.ACTION_PICK);
-                intentGetPhoto.setType("image/*");
+                intentGetPhoto.setType("image*/
+/*");
 
                 startActivityForResult(intentGetPhoto, RESULT_LOAD_IMAGE);
             }
         });
+*/
 
         // Create Click Listener for Order button
+/*
         Button buttonOrder = (Button) findViewById(R.id.order_button);
         buttonOrder.setOnClickListener(new View.OnClickListener() {
 
@@ -247,8 +309,10 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
                 productDialog.show(fragmentManager, "Order Dialog");
             }
         });
+*/
 
         // Create Click Listener for Receive button
+/*
         Button buttonReceive = (Button) findViewById(R.id.receive_button);
         buttonReceive.setOnClickListener(new View.OnClickListener() {
 
@@ -264,8 +328,10 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
                 productDialog.show(fragmentManager, "Receiving Dialog");
             }
         });
+*/
 
         // Create Click Listener for Sale button
+/*
         Button buttonSale = (Button) findViewById(R.id.sale_button);
         buttonSale.setOnClickListener(new View.OnClickListener() {
 
@@ -280,6 +346,7 @@ public class ProductEditor extends AppCompatActivity implements LoaderManager.Lo
                 productDialog.show(fragmentManager, "Sale Dialog");
             }
         });
+*/
 
     }
 
