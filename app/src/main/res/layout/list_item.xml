@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:clickable="true"
-        android:src="@drawable/ic_add_shopping_cart_black_24dp"/>
+        android:src="@drawable/ic_add_shopping_cart_green_24dp"/>
 
     <RelativeLayout
         android:id="@+id/product_click_zone"
